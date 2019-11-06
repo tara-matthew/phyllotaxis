@@ -1,0 +1,21 @@
+multiplier increases and decreases at certain rates:
+-=.1
++=.1
++=.5
+.05
+3
+
+play around with colours
+fill(r % 360, 50, 100);
+fill(r % 360, 100, 100);
+same with fill(a)
+
+rainbow!
+var cx = map(x,0,width,0,255);
+fill(cx % 360, 50, 100);
+
+increase amount n increases by
+make this variable += 0.0001 on every iteration
+
+COOL PATTERN
+increase 1.2 && increase +=.0001
