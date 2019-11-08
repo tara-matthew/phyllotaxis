@@ -1,20 +1,27 @@
 var n = 0;
 var c = 4;
 var multiplier = 137.5;
+var increase = 1;
+var increaseBy = 1;
+var newIncrease = 1;
 
-var slider;
+
+var increaseSlider;
+var increaseBySlider;
 
 function setup() {
     createCanvas(400,400);
     angleMode(DEGREES);
     colorMode(HSB)
     background(0);
-    slider = createSlider(0,100);
-    slider.position(407,383);
+    increaseSlider = createSlider(0,10,0,0.1);
+    increaseSlider.position(407,383);
 }
 
 function draw() {
-
+    increaseSlider.changed(printVal);
+    increase = newIncrease + increaseSlider.value();
+    print(increase);
     var a = n * multiplier;
     var r = c * sqrt(n);
 
@@ -25,7 +32,11 @@ function draw() {
     noStroke();
 
     ellipse(x, y, 4, 4)
+    newIncrease += 0.001;
+    n += increase;
 
-    n += 1;
+}
 
+function printVal() {
+    print(increaseSlider.value());
 }
