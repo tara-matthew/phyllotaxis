@@ -3,7 +3,8 @@ var c = 4;
 var multiplier = 137.5;
 var increase = 1;
 var increaseBy = 1;
-var newIncrease = 1;
+var newIncrease = 0;
+var nOffset = 100;
 
 
 var increaseSlider;
@@ -21,9 +22,16 @@ function setup() {
 function draw() {
     increaseSlider.changed(printVal);
     increase = newIncrease + increaseSlider.value();
-    print(increase);
+    // print(increase);
     var a = n * multiplier;
     var r = c * sqrt(n);
+
+    n += map(noise(nOffset), 0, 1, 0, 8);
+    console.log(n)
+    // console.log(nIncrease)
+    // n += round(nIncrease);
+
+    nOffset += 0.00001;
 
     var x = r * cos(a) + width/2;
     var y = r * sin(a) + height/2;
@@ -32,7 +40,7 @@ function draw() {
     noStroke();
 
     ellipse(x, y, 4, 4)
-    newIncrease += 0.001;
+    //newIncrease += 0.0001;
     n += increase;
 
 }
